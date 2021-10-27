@@ -1,3 +1,5 @@
+# coding: utf-8
+
 """
 Django settings for src project.
 
@@ -12,20 +14,27 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+from decouple import config
+from unipath import Path
+import dj_database_url
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#x5dc3(-8($ji(6-b+p)&e)(mqj6o+65ep+y6x14@c=4l!cjfs'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config(
+    'ALLOWED_HOSTS', cast=lambda v: [
+        s.strip() for s in v.split(',')])
 
 
 # Application definition
@@ -73,12 +82,16 @@ WSGI_APPLICATION = 'src.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if DEBUG:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default='sqlite:///' +
+            BASE_DIR.child('db.sqlite3'))}
+else:
+    DATABASES = {
+        'default': dj_database_url.config(config('DATABASE_URL'))
+
     }
-}
 
 
 # Password validation
