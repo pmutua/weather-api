@@ -97,7 +97,7 @@ else:
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.AllowAny',
     ]
 }
 
@@ -139,3 +139,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+WEATHER_API_BASE_URL = config('WEATHER_API_BASE_URL')
+WEATHER_API_KEY = config('WEATHER_API_KEY')
