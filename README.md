@@ -78,3 +78,54 @@ Before you continue, ensure you have met the following requirements:
 8. Start the app locally
 
    `python manage.py runserver`
+
+## Using the API
+
+The API currently has one endpoint that allows the user to get the minimum, maximum, average and median temperature for a given city and period of time.
+
+### Making a Request
+
+Url format: `/api/locations/<add city name here>/?days=<add number of days here>`
+
+**Example**
+`GET /api/locations/london/?days=1`
+
+| Parameter   | Type      | Description             |
+| :---------- | :-------- | :---------------------- |
+| `city` | `string`  | **Required**. city name |
+| `days`      | `integer` | **Required**. days      |
+
+### Response
+
+The endpoint returns a JSON response in the following format:
+
+```javascript
+{
+    "success": true,
+    "msg": "success",
+    "data": {
+        "maximum": 18.6,
+        "minimum": 11.0,
+        "average": 13.593055555555555,
+        "median": 12.95
+    },
+    "status": 200
+}
+```
+
+The `msg` attribute contains a message commonly used to indicate errors or success that the resource was retrieved.
+
+The `success` attribute describes if the request was successful or not.
+
+The `status` attribute describes status code.
+
+The `data` attribute contains JSON data.
+
+## Status Codes
+
+The API returns the following status codes in its API:
+
+| Status Code | Description   |
+| :---------- | :------------ |
+| 200         | `OK`          |
+| 400         | `BAD REQUEST` |
