@@ -33,10 +33,22 @@ jobs:
         pip install flake8
         flake8
     - name: Coverage report
+      env:
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
+        WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+        WEATHER_API_BASE_URL: ${{ secrets.WEATHER_API_BASE_URL }}
+        DEBUG: True   
       run: |
         pip install coverage
-        coverage run manage.py test
+        coverage run src/manage.py test
         coverage report
     - name: Django Testing
+      env:
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
+        WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+        WEATHER_API_BASE_URL: ${{ secrets.WEATHER_API_BASE_URL }}
+        DEBUG: True
       run: |
-        python3 manage.py test
+        python3 src/manage.py test
