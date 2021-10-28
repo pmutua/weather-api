@@ -58,13 +58,25 @@ Before you continue, ensure you have met the following requirements:
    The `.env` should have the following variables then add neccessary values:
 
    ```bash
-       DEBUG=True
+       DEBUG=<Add value here> # Boolean value. Use True when running in development. 
        SECRET_KEY=<AddSecretKey>
        DATABASE_URL=<AddDataBaseUrl>
        ALLOWED_HOSTS=<AddAllowedHostsHere>
        WEATHER_API_KEY=<AddWeatherAPIKeyHere>
        WEATHER_API_BASE_URL=http://api.weatherapi.com/v1
    ```
+
+   **Example***
+
+      ```bash
+       DEBUG=True
+       SECRET_KEY=b54rrrw432313
+       DATABASE_URL= # If debug is True you don't need this variable.
+       ALLOWED_HOSTS=localhost
+       WEATHER_API_KEY=846452528
+       WEATHER_API_BASE_URL=http://api.weatherapi.com/v1
+   ```
+
 
    You can get the Weather API key at [Weather API](https://www.weatherapi.com/docs/)
 
