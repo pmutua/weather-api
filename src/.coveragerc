@@ -1,5 +1,16 @@
 [run]
+source = .
 omit =
     */site-packages/*
-    */distutils/*
-    tests/*
+    */migrations/*
+    */tests/*
+    *apps.py
+    *manage.py
+    *__init__.py
+    *wsgi*
+    *admin.py
+    *urls.py
+    *apps.py
+    *asgi*
+    *settings*
+    *models*
