@@ -26,21 +26,23 @@ Before you continue, ensure you have met the following requirements:
 
 3. Create a virtual environment
 
-   ```# Linux/MacOS:
-       python3 -m virtualenv env
+   **Linux/MacOS:**
 
-       # Windows:
-       python -m virtualenv env
-   ```
+   `python3 -m virtualenv env`
+
+   **Windows**
+
+   `python -m virtualenv env`
 
 4. Start the virtual environment
 
-   ```# Linux/MacOS
-       source env/bin/activate
+   **Linux/MacOS**
 
-       # Windows
-       .\env\Scripts\activate
-   ```
+   `source env/bin/activate`
+
+   **Windows**
+
+   `.\env\Scripts\activate`
 
 5. Install dependencies
 
