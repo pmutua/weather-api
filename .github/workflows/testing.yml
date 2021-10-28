@@ -37,7 +37,8 @@ jobs:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
         ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
         WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
-        WEATHER_API_BASE_URL: ${{ secrets.WEATHER_API_BASE_URL }}    
+        WEATHER_API_BASE_URL: ${{ secrets.WEATHER_API_BASE_URL }}
+        DEBUG: True   
       run: |
         pip install coverage
         coverage run src/manage.py test
@@ -48,5 +49,6 @@ jobs:
         ALLOWED_HOSTS: ${{ secrets.ALLOWED_HOSTS }}
         WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
         WEATHER_API_BASE_URL: ${{ secrets.WEATHER_API_BASE_URL }}
+        DEBUG: True
       run: |
         python3 src/manage.py test
