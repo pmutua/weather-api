@@ -6,7 +6,7 @@ from .services import WeatherAPIService
 class LocationWeatherForecastStatsAPIView(views.APIView):
     """
     This view provides `GET` method minimum, maximum,
-    average and median temperature for a given city.
+    average and median temperature for a given city and days.
     """
 
     def get(self, request, city):
