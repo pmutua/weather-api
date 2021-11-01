@@ -52,7 +52,7 @@ Before you continue, ensure you have met the following requirements:
 
    **Windows:**
 
-   `pip install requirements\dev.txt`
+   `pip install -r requirements\dev.txt`
 
 6. Set up environment variables
    Create a file called `.env` in the directory where `manage.py` is located.
